@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoRally - Turn Cleanup Into a Movement 🌍</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Particle Background -->
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fas fa-fist-raised"></i></div>
+                <span>Eco<span class="green">Rally</span></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="active">Home</a>
+                <a href="#challenges">Challenges</a>
+                <a href="#feed">Feed</a>
+                <a href="#report">Report</a>
+                <a href="#leaderboard">Leaderboard</a>
+                <a href="#impact">Impact</a>
+            </div>
+            <div class="nav-right">
+                <div class="streak-display">
+                    <i class="fas fa-fire"></i>
+                    <span id="streakCount">15</span>
+                </div>
+                <div class="points-display">
+                    <i class="fas fa-leaf"></i>
+                    <span id="totalPoints">2,450</span>
+                </div>
+                <div class="notif-icon" onclick="toggleNotifications()">
+                    <i class="fas fa-bell"></i>
+                    <span class="notif-count">5</span>
+                </div>
+                <div class="user-avatar" onclick="toggleProfile()">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=EcoWarrior" alt="avatar">
+                    <div class="online-dot"></div>
+                </div>
+                <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="home">
+        <div class="hero-left">
+            <div class="hero-tag">
+                <span class="pulse-dot"></span>
+                <span>🔥 #EcoRally is trending — 15K+ warriors joined</span>
+            </div>
+            <h1>
+                <span>Clean Your City.</span>
+                <span class="gradient-text">Go Viral.</span>
+                <span>Win Rewards.</span>
+            </h1>
+            <p class="hero-desc">
+                Join the movement that turns waste cleanup into a social challenge. 
+                Post before/after photos, compete with friends and colleges, 
+                report dirty areas to the government — and earn real rewards for 
+                making a real difference. 🌍♻️
+            </p>
+            <div class="hero-actions">
+                <button class="btn-hero" onclick="window.location.href='../loginpage.html'">
+                    <i class="fas fa-bolt"></i> Join a Challenge
+                </button>
+                <button class="btn-hero-outline" onclick="scrollTo('report')">
+                    <i class="fas fa-flag"></i> Report Dirty Area
+                </button>
+            </div>
+            <div class="hero-proof">
+                <div class="avatar-stack">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=a1" alt="">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=b2" alt="">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=c3" alt="">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=d4" alt="">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=e5" alt="">
+                    <span class="more-avatars">+2.3K</span>
+                </div>
+                <span class="proof-text">warriors cleaned <strong>847 areas</strong> this week</span>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="mock-post">
+                        <div class="mock-header">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=priya" alt="">
+                            <div>
+                                <strong>@priya_eco</strong>
+                                <span>Mumbai • 2h ago</span>
+                            </div>
+                            <span class="verified-badge">✓</span>
+                        </div>
+                        <div class="before-after-mock">
+                            <div class="ba-side before">
+                                <span class="ba-label">BEFORE</span>
+                                <div class="ba-img dirty">🗑️🗑️🗑️</div>
+                            </div>
+                            <div class="ba-divider">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                            <div class="ba-side after">
+                                <span class="ba-label">AFTER</span>
+                                <div class="ba-img clean">🌿✨🌸</div>
+                            </div>
+                        </div>
+                        <div class="mock-actions">
+                            <span><i class="fas fa-heart" style="color:#ff4757"></i> 2.4K</span>
+                            <span><i class="fas fa-comment"></i> 183</span>
+                            <span><i class="fas fa-share"></i> Share</span>
+                        </div>
+                        <div class="mock-reward">
+                            <i class="fas fa-trophy"></i> +150 EcoPoints Earned!
+                        </div>
+                    </div>
+                </div>
+                <div class="phone-notch"></div>
+            </div>
+            <div class="floating-badges">
+                <div class="float-badge b1">🏆 #1 College</div>
+                <div class="float-badge b2">🔥 15 Day Streak</div>
+                <div class="float-badge b3">♻️ 500+ Cleaned</div>
+                <div class="float-badge b4">🌍 City Champion</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LIVE CHALLENGE HUB ==================== -->
+    <section class="section challenges-section" id="challenges">
+        <div class="section-header">
+            <span class="tag">🔥 Live Challenges</span>
+            <h2>Join a Challenge. Make it Viral.</h2>
+            <p>Pick a challenge, complete it, upload proof, and climb the leaderboard</p>
+        </div>
+
+        <!-- Challenge Categories -->
+        <div class="challenge-filters">
+            <button class="filter-btn active" onclick="filterChallenges(this,'all')">🌟 All</button>
+            <button class="filter-btn" onclick="filterChallenges(this,'trending')">🔥 Trending</button>
+            <button class="filter-btn" onclick="filterChallenges(this,'cleanup')">🧹 Cleanup</button>
+            <button class="filter-btn" onclick="filterChallenges(this,'segregation')">♻️ Segregation</button>
+            <button class="filter-btn" onclick="filterChallenges(this,'college')">🎓 College Wars</button>
+            <button class="filter-btn" onclick="filterChallenges(this,'weekly')">📅 Weekly</button>
+        </div>
+
+        <!-- Challenge Cards -->
+        <div class="challenges-grid">
+            <!-- Challenge 1: Trending -->
+            <div class="challenge-card featured" data-category="trending cleanup">
+                <div class="challenge-banner">
+                    <div class="challenge-live"><span class="live-dot"></span> LIVE</div>
+                    <div class="challenge-timer">
+                        <i class="fas fa-clock"></i>
+                        <span id="timer1">2d 14h 32m</span>
+                    </div>
+                    <div class="challenge-emoji">🧹</div>
+                </div>
+                <div class="challenge-body">
+                    <div class="challenge-hashtag">#CleanMyStreet</div>
+                    <h3>Street Cleanup Challenge</h3>
+                    <p>Clean any public area near you. Post before/after photos to prove it!</p>
+                    <div class="challenge-stats">
+                        <div class="ch-stat">
+                            <i class="fas fa-users"></i>
+                            <span>3,247 joined</span>
+                        </div>
+                        <div class="ch-stat">
+                            <i class="fas fa-image"></i>
+                            <span>1,892 submissions</span>
+                        </div>
+                    </div>
+                    <div class="challenge-rewards">
+                        <span class="reward-tag"><i class="fas fa-leaf"></i> +200 EP</span>
+                        <span class="reward-tag"><i class="fas fa-medal"></i> Badge</span>
+                        <span class="reward-tag"><i class="fas fa-gift"></i> ₹500 Voucher</span>
+                    </div>
+                    <div class="challenge-difficulty">
+                        <span class="diff-label">Difficulty:</span>
+                        <div class="diff-dots">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <span class="diff-text">Easy</span>
+                    </div>
+                    <button class="btn-join" onclick="joinChallenge('cleanmystreet')">
+                        <i class="fas fa-bolt"></i> Join Challenge
+                    </button>
+                </div>
+            </div>
+
+            <!-- Challenge 2 -->
+            <div class="challenge-card" data-category="segregation">
+                <div class="challenge-banner seg">
+                    <div class="challenge-timer">
+                        <i class="fas fa-clock"></i>
+                        <span>5d 8h left</span>
+                    </div>
+                    <div class="challenge-emoji">♻️</div>
+                </div>
+                <div class="challenge-body">
+                    <div class="challenge-hashtag">#SegregationPro</div>
+                    <h3>Perfect Segregation Week</h3>
+                    <p>Properly segregate your waste for 7 consecutive days. Upload daily proof!</p>
+                    <div class="challenge-stats">
+                        <div class="ch-stat">
+                            <i class="fas fa-users"></i>
+                            <span>1,856 joined</span>
+                        </div>
+                        <div class="ch-stat">
+                            <i class="fas fa-image"></i>
+                            <span>5,420 photos</span>
+                        </div>
+                    </div>
+                    <div class="challenge-rewards">
+                        <span class="reward-tag"><i class="fas fa-leaf"></i> +350 EP</span>
+                        <span class="reward-tag"><i class="fas fa-medal"></i> Pro Badge</span>
+                    </div>
+                    <div class="challenge-difficulty">
+                        <span class="diff-label">Difficulty:</span>
+                        <div class="diff-dots">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <span class="diff-text">Medium</span>
+                    </div>
+                    <button class="btn-join" onclick="joinChallenge('segregationpro')">
+                        <i class="fas fa-bolt"></i> Join Challenge
+                    </button>
+                </div>
+            </div>
+
+            <!-- Challenge 3 -->
+            <div class="challenge-card" data-category="college trending">
+                <div class="challenge-banner college">
+                    <div class="challenge-live"><span class="live-dot"></span> HOT</div>
+                    <div class="challenge-timer">
+                        <i class="fas fa-clock"></i>
+                        <span>1d 6h left</span>
+                    </div>
+                    <div class="challenge-emoji">🎓</div>
+                </div>
+                <div class="challenge-body">
+                    <div class="challenge-hashtag">#CollegeCleanWars</div>
+                    <h3>College vs College Battle</h3>
+                    <p>Which college can clean the most areas? Rally your campus crew!</p>
+                    <div class="challenge-stats">
+                        <div class="ch-stat">
+                            <i class="fas fa-school"></i>
+                            <span>48 colleges</span>
+                        </div>
+                        <div class="ch-stat">
+                            <i class="fas fa-users"></i>
+                            <span>8,234 students</span>
+                        </div>
+                    </div>
+                    <div class="challenge-rewards">
+                        <span class="reward-tag"><i class="fas fa-leaf"></i> +500 EP</span>
+                        <span class="reward-tag"><i class="fas fa-trophy"></i> Trophy</span>
+                        <span class="reward-tag"><i class="fas fa-certificate"></i> Certificate</span>
+                    </div>
+                    <div class="challenge-difficulty">
+                        <span class="diff-label">Difficulty:</span>
+                        <div class="diff-dots">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <span class="diff-text">Hard</span>
+                    </div>
+                    <button class="btn-join" onclick="joinChallenge('collegecleanwars')">
+                        <i class="fas fa-bolt"></i> Rally Your College
+                    </button>
+                </div>
+            </div>
+
+            <!-- Challenge 4 -->
+            <div class="challenge-card" data-category="weekly cleanup">
+                <div class="challenge-banner weekly">
+                    <div class="challenge-timer">
+                        <i class="fas fa-clock"></i>
+                        <span>6d 22h left</span>
+                    </div>
+                    <div class="challenge-emoji">🌊</div>
+                </div>
+                <div class="challenge-body">
+                    <div class="challenge-hashtag">#BeachCleanup</div>
+                    <h3>Beach/Riverside Rescue</h3>
+                    <p>Head to your nearest beach or river and rescue it from plastic pollution!</p>
+                    <div class="challenge-stats">
+                        <div class="ch-stat">
+                            <i class="fas fa-users"></i>
+                            <span>967 joined</span>
+                        </div>
+                        <div class="ch-stat">
+                            <i class="fas fa-weight-hanging"></i>
+                            <span>2.3 tons collected</span>
+                        </div>
+                    </div>
+                    <div class="challenge-rewards">
+                        <span class="reward-tag"><i class="fas fa-leaf"></i> +400 EP</span>
+                        <span class="reward-tag"><i class="fas fa-medal"></i> Ocean Badge</span>
+                    </div>
+                    <div class="challenge-difficulty">
+                        <span class="diff-label">Difficulty:</span>
+                        <div class="diff-dots">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <span class="diff-text">Medium</span>
+                    </div>
+                    <button class="btn-join" onclick="joinChallenge('beachcleanup')">
+                        <i class="fas fa-bolt"></i> Join Challenge
+                    </button>
+                </div>
+            </div>
+
+            <!-- Challenge 5 -->
+            <div class="challenge-card" data-category="segregation weekly">
+                <div class="challenge-banner zero">
+                    <div class="challenge-timer">
+                        <i class="fas fa-clock"></i>
+                        <span>4d 11h left</span>
+                    </div>
+                    <div class="challenge-emoji">🚫</div>
+                </div>
+                <div class="challenge-body">
+                    <div class="challenge-hashtag">#ZeroWasteDay</div>
+                    <h3>24-Hour Zero Waste</h3>
+                    <p>Go an entire day producing zero non-recyclable waste. Document everything!</p>
+                    <div class="challenge-stats">
+                        <div class="ch-stat">
+                            <i class="fas fa-users"></i>
+                            <span>2,103 joined</span>
+                        </div>
+                        <div class="ch-stat">
+                            <i class="fas fa-check-circle"></i>
+                            <span>634 completed</span>
+                        </div>
+                    </div>
+                    <div class="challenge-rewards">
+                        <span class="reward-tag"><i class="fas fa-leaf"></i> +300 EP</span>
+                        <span class="reward-tag"><i class="fas fa-medal"></i> Zero Hero</span>
+                    </div>
+                    <div class="challenge-difficulty">
+                        <span class="diff-label">Difficulty:</span>
+                        <div class="diff-dots">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                        </div>
+                        <span class="diff-text">Legendary</span>
+                    </div>
+                    <button class="btn-join" onclick="joinChallenge('zerowaste')">
+                        <i class="fas fa-bolt"></i> Accept Challenge
+                    </button>
+                </div>
+            </div>
+
+            <!-- Create Your Own Challenge -->
+            <div class="challenge-card create-card" data-category="all">
+                <div class="create-content">
+                    <div class="create-icon">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <h3>Create Your Own Challenge</h3>
+                    <p>Start a movement in your area. Set rules, rewards, and watch it go viral!</p>
+                    <button class="btn-create" onclick="openCreateChallenge()">
+                        <i class="fas fa-rocket"></i> Create Challenge
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SOCIAL FEED ==================== -->
+    <section class="section feed-section" id="feed">
+        <div class="section-header">
+            <span class="tag">📸 Community Feed</span>
+            <h2>See the Movement in Action</h2>
+            <p>Real people, real cleanups, real impact — happening right now</p>
+        </div>
+
+        <!-- Upload CTA -->
+        <div class="upload-cta">
+            <div class="upload-prompt">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=EcoWarrior" alt="" class="upload-avatar">
+                <div class="upload-input-fake" onclick="openUploadModal()">
+                    <span>Share your cleanup story... 📸</span>
+                </div>
+                <button class="btn-upload-quick" onclick="openUploadModal()">
+                    <i class="fas fa-camera"></i> Post
+                </button>
+            </div>
+        </div>
+
+        <!-- Feed Grid -->
+        <div class="feed-grid">
+            <!-- Post 1 -->
+            <div class="feed-post">
+                <div class="post-header">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=arjun" alt="">
+                    <div class="post-user-info">
+                        <div class="post-user-name">
+                            <strong>Arjun Mehta</strong>
+                            <span class="verified"><i class="fas fa-check-circle"></i></span>
+                            <span class="user-level">Lv 18</span>
+                        </div>
+                        <span class="post-meta">
+                            <i class="fas fa-map-marker-alt"></i> Andheri, Mumbai • 3h ago
+                        </span>
+                    </div>
+                    <div class="post-challenge-tag">#CleanMyStreet</div>
+                </div>
+                <div class="before-after-container">
+                    <div class="ba-slider" id="baSlider1">
+                        <div class="ba-before">
+                            <div class="ba-image before-img">
+                                <div class="placeholder-scene dirty-scene">
+                                    <i class="fas fa-trash"></i>
+                                    <i class="fas fa-box"></i>
+                                    <i class="fas fa-wine-bottle"></i>
+                                    <span class="scene-label">BEFORE</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ba-after">
+                            <div class="ba-image after-img">
+                                <div class="placeholder-scene clean-scene">
+                                    <i class="fas fa-seedling"></i>
+                                    <i class="fas fa-sun"></i>
+                                    <i class="fas fa-dove"></i>
+                                    <span class="scene-label">AFTER</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ba-handle" onmousedown="startSlide(event, 'baSlider1')">
+                            <div class="handle-line"></div>
+                            <div class="handle-circle">
+                                <i class="fas fa-arrows-left-right"></i>
+                            </div>
+                            <div class="handle-line"></div>
+                        </div>
+                    </div>
+                    <div class="ai-verified-badge">
+                        <i class="fas fa-robot"></i> AI Verified ✓
+                    </div>
+                </div>
+                <div class="post-caption">
+                    <p>Spent 2 hours cleaning the lane behind our society. Found 47 plastic bottles, 
+                    12 glass bottles, and a LOT of food waste. Properly segregated everything! 
+                    Who's next? 💪🌍 <span class="hashtag">#CleanMyStreet</span> <span class="hashtag">#EcoRally</span></p>
+                </div>
+                <div class="post-impact">
+                    <div class="impact-item">
+                        <i class="fas fa-weight-hanging"></i>
+                        <span>23 kg collected</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-cloud"></i>
+                        <span>4.6 kg CO₂ saved</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-leaf"></i>
+                        <span>+150 EP earned</span>
+                    </div>
+                </div>
+                <div class="post-actions">
+                    <button class="action-btn" onclick="likePost(this)">
+                        <i class="far fa-heart"></i>
+                        <span>2,847</span>
+                    </button>
+                    <button class="action-btn" onclick="toggleComments(this)">
+                        <i class="far fa-comment"></i>
+                        <span>234</span>
+                    </button>
+                    <button class="action-btn" onclick="sharePost()">
+                        <i class="far fa-share-square"></i>
+                        <span>Share</span>
+                    </button>
+                    <button class="action-btn nominate" onclick="nominatePost(this)">
+                        <i class="fas fa-award"></i>
+                        <span>Nominate</span>
+                    </button>
+                </div>
+                <div class="post-comments-section" style="display:none;">
+                    <div class="comment">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=riya" alt="">
+                        <div>
+                            <strong>@riya_green</strong>
+                            <p>This is amazing! I'm going to clean my street tomorrow! 💚</p>
+                        </div>
+                    </div>
+                    <div class="comment-input">
+                        <input type="text" placeholder="Add a comment...">
+                        <button><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 2 -->
+            <div class="feed-post">
+                <div class="post-header">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=sneha" alt="">
+                    <div class="post-user-info">
+                        <div class="post-user-name">
+                            <strong>Sneha Patel</strong>
+                            <span class="user-level">Lv 22</span>
+                        </div>
+                        <span class="post-meta">
+                            <i class="fas fa-map-marker-alt"></i> VIT Vellore • 5h ago
+                        </span>
+                    </div>
+                    <div class="post-challenge-tag college-tag">#CollegeCleanWars</div>
+                </div>
+                <div class="before-after-container">
+                    <div class="ba-slider" id="baSlider2">
+                        <div class="ba-before">
+                            <div class="ba-image before-img">
+                                <div class="placeholder-scene dirty-scene campus">
+                                    <i class="fas fa-dumpster"></i>
+                                    <i class="fas fa-pizza-slice"></i>
+                                    <i class="fas fa-bottle-water"></i>
+                                    <span class="scene-label">BEFORE</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ba-after">
+                            <div class="ba-image after-img">
+                                <div class="placeholder-scene clean-scene campus">
+                                    <i class="fas fa-tree"></i>
+                                    <i class="fas fa-recycle"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="scene-label">AFTER</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ba-handle" onmousedown="startSlide(event, 'baSlider2')">
+                            <div class="handle-line"></div>
+                            <div class="handle-circle">
+                                <i class="fas fa-arrows-left-right"></i>
+                            </div>
+                            <div class="handle-line"></div>
+                        </div>
+                    </div>
+                    <div class="ai-verified-badge">
+                        <i class="fas fa-robot"></i> AI Verified ✓
+                    </div>
+                </div>
+                <div class="post-caption">
+                    <p>VIT squad cleaned the entire food court area! 30 students, 3 hours, 
+                    150kg of waste properly segregated! 🎓💪 Let's see which college beats this!
+                    <span class="hashtag">#CollegeCleanWars</span> <span class="hashtag">#VITVellore</span></p>
+                </div>
+                <div class="post-impact">
+                    <div class="impact-item">
+                        <i class="fas fa-weight-hanging"></i>
+                        <span>150 kg collected</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-users"></i>
+                        <span>30 volunteers</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-leaf"></i>
+                        <span>+500 EP earned</span>
+                    </div>
+                </div>
+                <div class="post-actions">
+                    <button class="action-btn" onclick="likePost(this)">
+                        <i class="far fa-heart"></i>
+                        <span>5,102</span>
+                    </button>
+                    <button class="action-btn" onclick="toggleComments(this)">
+                        <i class="far fa-comment"></i>
+                        <span>456</span>
+                    </button>
+                    <button class="action-btn" onclick="sharePost()">
+                        <i class="far fa-share-square"></i>
+                        <span>Share</span>
+                    </button>
+                    <button class="action-btn nominate" onclick="nominatePost(this)">
+                        <i class="fas fa-award"></i>
+                        <span>Nominate</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Post 3 - Segregation -->
+            <div class="feed-post">
+                <div class="post-header">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=rahul" alt="">
+                    <div class="post-user-info">
+                        <div class="post-user-name">
+                            <strong>Rahul Kumar</strong>
+                            <span class="user-level">Lv 9</span>
+                        </div>
+                        <span class="post-meta">
+                            <i class="fas fa-map-marker-alt"></i> Bengaluru • 8h ago
+                        </span>
+                    </div>
+                    <div class="post-challenge-tag seg-tag">#SegregationPro</div>
+                </div>
+                <div class="segregation-proof">
+                    <div class="seg-bins">
+                        <div class="seg-bin green-bin">
+                            <i class="fas fa-leaf"></i>
+                            <span>Organic</span>
+                            <span class="bin-weight">2.3 kg</span>
+                        </div>
+                        <div class="seg-bin blue-bin">
+                            <i class="fas fa-recycle"></i>
+                            <span>Recyclable</span>
+                            <span class="bin-weight">1.8 kg</span>
+                        </div>
+                        <div class="seg-bin red-bin">
+                            <i class="fas fa-biohazard"></i>
+                            <span>Hazardous</span>
+                            <span class="bin-weight">0.2 kg</span>
+                        </div>
+                        <div class="seg-bin yellow-bin">
+                            <i class="fas fa-newspaper"></i>
+                            <span>Paper</span>
+                            <span class="bin-weight">1.1 kg</span>
+                        </div>
+                    </div>
+                    <div class="seg-score">
+                        <div class="score-circle">
+                            <svg viewBox="0 0 36 36" class="score-svg">
+                                <path class="score-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                <path class="score-fill" stroke-dasharray="92, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            </svg>
+                            <div class="score-text">
+                                <strong>92%</strong>
+                                <span>Accuracy</span>
+                            </div>
+                        </div>
+                        <span class="ai-check"><i class="fas fa-robot"></i> AI Verified</span>
+                    </div>
+                </div>
+                <div class="post-caption">
+                    <p>Day 5 of #SegregationPro challenge! Getting better at separating waste. 
+                    AI gave me 92% accuracy today! 🎯 
+                    <span class="hashtag">#SegregationPro</span> <span class="hashtag">#EcoRally</span></p>
+                </div>
+                <div class="post-actions">
+                    <button class="action-btn" onclick="likePost(this)">
+                        <i class="far fa-heart"></i>
+                        <span>1,234</span>
+                    </button>
+                    <button class="action-btn" onclick="toggleComments(this)">
+                        <i class="far fa-comment"></i>
+                        <span>89</span>
+                    </button>
+                    <button class="action-btn" onclick="sharePost()">
+                        <i class="far fa-share-square"></i>
+                        <span>Share</span>
+                    </button>
+                    <button class="action-btn nominate" onclick="nominatePost(this)">
+                        <i class="fas fa-award"></i>
+                        <span>Nominate</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-load-more" onclick="loadMorePosts()">
+            <i class="fas fa-arrow-down"></i> Load More Stories
+        </button>
+    </section>
+
+    <!-- ==================== REPORT DIRTY AREA ==================== -->
+    <section class="section report-section" id="report">
+        <div class="section-header">
+            <span class="tag">🚨 Report & Act</span>
+            <h2>Report a Dirty Area</h2>
+            <p>Flag waste-filled areas → We connect you to government portals → Track resolution</p>
+        </div>
+
+        <div class="report-container">
+            <div class="report-form-card">
+                <div class="report-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-num">1</div>
+                        <span>Location</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="2">
+                        <div class="step-num">2</div>
+                        <span>Evidence</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="3">
+                        <div class="step-num">3</div>
+                        <span>Details</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="4">
+                        <div class="step-num">4</div>
+                        <span>Submit</span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Location -->
+                <div class="report-step-content active" id="reportStep1">
+                    <h3><i class="fas fa-map-marker-alt"></i> Where is the dirty area?</h3>
+                    <div class="location-input-group">
+                        <button class="btn-gps" onclick="getGPSLocation()">
+                            <i class="fas fa-crosshairs"></i> Use My Location (GPS)
+                        </button>
+                        <div class="or-divider"><span>OR</span></div>
+                        <input type="text" class="form-input" id="locationInput" placeholder="Type address or landmark...">
+                    </div>
+                    <div class="mini-map" id="reportMap">
+                        <div class="map-visual">
+                            <div class="map-pin">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="map-grid-bg">
+                                <span class="map-label" id="mapLabel">📍 Click "Use My Location" to pin the area</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-next" onclick="nextReportStep(2)">
+                        Next: Add Evidence <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Step 2: Evidence -->
+                <div class="report-step-content" id="reportStep2">
+                    <h3><i class="fas fa-camera"></i> Upload Evidence Photos</h3>
+                    <div class="photo-upload-zone" id="photoDropZone" onclick="document.getElementById('reportPhotos').click()">
+                        <input type="file" id="reportPhotos" multiple accept="image/*" onchange="handleReportPhotos(event)" hidden>
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drop photos here or click to upload</p>
+                        <span>Upload up to 5 photos of the dirty area</span>
+                    </div>
+                    <div class="uploaded-photos" id="uploadedReportPhotos"></div>
+                    <div class="report-nav-btns">
+                        <button class="btn-back" onclick="prevReportStep(1)">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn-next" onclick="nextReportStep(3)">
+                            Next: Add Details <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Details -->
+                <div class="report-step-content" id="reportStep3">
+                    <h3><i class="fas fa-clipboard-list"></i> Describe the Issue</h3>
+                    <div class="waste-type-selector">
+                        <label>Type of waste found:</label>
+                        <div class="waste-chips">
+                            <button class="waste-chip" onclick="toggleChip(this)"><i class="fas fa-bottle-water"></i> Plastic</button>
+                            <button class="waste-chip" onclick="toggleChip(this)"><i class="fas fa-dumpster"></i> Mixed Garbage</button>
+                            <button class="waste-chip" onclick="toggleChip(this)"><i class="fas fa-hard-hat"></i> Construction</button>
+                            <button class="waste-chip" onclick="toggleChip(this)"><i class="fas fa-biohazard"></i> Hazardous</button>
+                            <button class="waste-chip" onclick="toggleChip(this)"><i class="fas fa-laptop"></i> E-Waste</button>
+                            <button class="waste-chip" onclick="toggleChip(this)"><i class="fas fa-toilet"></i> Sewage</button>
+                            <button class="waste-chip" onclick="toggleChip(this)"><i class="fas fa-utensils"></i> Food Waste</button>
+                            <button class="waste-chip" onclick="toggleChip(this)"><i class="fas fa-industry"></i> Industrial</button>
+                        </div>
+                    </div>
+                    <div class="severity-selector">
+                        <label>Severity Level:</label>
+                        <div class="severity-options">
+                            <button class="severity-btn low" onclick="selectSeverity(this, 'low')">
+                                <i class="fas fa-exclamation"></i> Low
+                            </button>
+                            <button class="severity-btn medium" onclick="selectSeverity(this, 'medium')">
+                                <i class="fas fa-exclamation-triangle"></i> Medium
+                            </button>
+                            <button class="severity-btn high" onclick="selectSeverity(this, 'high')">
+                                <i class="fas fa-radiation"></i> High
+                            </button>
+                            <button class="severity-btn critical" onclick="selectSeverity(this, 'critical')">
+                                <i class="fas fa-skull-crossbones"></i> Critical
+                            </button>
+                        </div>
+                    </div>
+                    <textarea class="form-textarea" placeholder="Describe what you see... (e.g., Large pile of construction waste dumped near the park entrance)"></textarea>
+                    <div class="report-nav-btns">
+                        <button class="btn-back" onclick="prevReportStep(2)">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn-next" onclick="nextReportStep(4)">
+                            Next: Review & Submit <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Submit -->
+                <div class="report-step-content" id="reportStep4">
+                    <h3><i class="fas fa-paper-plane"></i> Submit Your Report</h3>
+                    <div class="submit-options">
+                        <div class="submit-option" onclick="selectSubmitOption(this, 'swachh')">
+                            <div class="option-logo">🏛️</div>
+                            <div class="option-info">
+                                <strong>Swachh Bharat Portal</strong>
+                                <span>Government of India's official waste portal</span>
+                            </div>
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                        <div class="submit-option" onclick="selectSubmitOption(this, 'municipal')">
+                            <div class="option-logo">🏢</div>
+                            <div class="option-info">
+                                <strong>Municipal Corporation</strong>
+                                <span>Your local civic body</span>
+                            </div>
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                        <div class="submit-option" onclick="selectSubmitOption(this, 'community')">
+                            <div class="option-logo">👥</div>
+                            <div class="option-info">
+                                <strong>Community Board</strong>
+                                <span>Post on EcoRally for community cleanup</span>
+                            </div>
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                        <div class="submit-option" onclick="selectSubmitOption(this, 'all')">
+                            <div class="option-logo">🚀</div>
+                            <div class="option-info">
+                                <strong>Submit to ALL</strong>
+                                <span>Maximum visibility & fastest action</span>
+                            </div>
+                            <i class="fas fa-check-circle" style="color: var(--green)"></i>
+                        </div>
+                    </div>
+                    <div class="volunteer-toggle">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="volunteerToggle" checked>
+                            <span class="toggle-slider"></span>
+                            <span>I'm willing to volunteer for cleanup (+100 bonus EP)</span>
+                        </label>
+                    </div>
+                    <div class="report-nav-btns">
+                        <button class="btn-back" onclick="prevReportStep(3)">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn-submit-report" onclick="submitReport()">
+                            <i class="fas fa-paper-plane"></i> Submit Report (+50 EP)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Reports Tracker -->
+            <div class="reports-tracker">
+                <h3><i class="fas fa-tasks"></i> Your Active Reports</h3>
+                <div class="report-track-list">
+                    <div class="report-track-item">
+                        <div class="report-status resolved">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="report-track-info">
+                            <strong>MG Road, Bengaluru</strong>
+                            <span>Reported 5 days ago • Mixed garbage</span>
+                            <div class="report-progress-bar">
+                                <div class="report-progress" style="width: 100%"></div>
+                            </div>
+                            <span class="status-text resolved">✅ Resolved - Cleaned by BBMP</span>
+                        </div>
+                        <span class="report-points">+75 EP</span>
+                    </div>
+                    <div class="report-track-item">
+                        <div class="report-status in-progress">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                        <div class="report-track-info">
+                            <strong>Anna Nagar Park, Chennai</strong>
+                            <span>Reported 2 days ago • Construction waste</span>
+                            <div class="report-progress-bar">
+                                <div class="report-progress" style="width: 60%"></div>
+                            </div>
+                            <span class="status-text in-progress">🔄 In Progress - Assigned to contractor</span>
+                        </div>
+                    </div>
+                    <div class="report-track-item">
+                        <div class="report-status pending">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="report-track-info">
+                            <strong>Sector 15, Noida</strong>
+                            <span>Reported 1 day ago • Sewage overflow</span>
+                            <div class="report-progress-bar">
+                                <div class="report-progress" style="width: 20%"></div>
+                            </div>
+                            <span class="status-text pending">⏳ Pending Review</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="community-cleanup-cta">
+                    <h4>🤝 Can't wait for government? Organize a Community Cleanup!</h4>
+                    <button class="btn-organize" onclick="organizeCleanup()">
+                        <i class="fas fa-bullhorn"></i> Rally Volunteers
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LEADERBOARD ==================== -->
+    <section class="section leaderboard-section" id="leaderboard">
+        <div class="section-header">
+            <span class="tag">🏆 Leaderboard</span>
+            <h2>Who's Leading the Movement?</h2>
+            <p>Individuals, colleges, and cities competing for a cleaner world</p>
+        </div>
+
+        <div class="leaderboard-container">
+            <!-- Leaderboard Tabs -->
+            <div class="lb-tabs">
+                <button class="lb-tab active" onclick="switchLB(this, 'individuals')">
+                    <i class="fas fa-user"></i> Individuals
+                </button>
+                <button class="lb-tab" onclick="switchLB(this, 'colleges')">
+                    <i class="fas fa-graduation-cap"></i> Colleges
+                </button>
+                <button class="lb-tab" onclick="switchLB(this, 'cities')">
+                    <i class="fas fa-city"></i> Cities
+                </button>
+                <button class="lb-tab" onclick="switchLB(this, 'companies')">
+                    <i class="fas fa-building"></i> Companies
+                </button>
+            </div>
+
+            <!-- Podium -->
+            <div class="podium" id="podium">
+                <div class="podium-place second">
+                    <div class="podium-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=green" alt="">
+                        <div class="podium-badge silver">2</div>
+                    </div>
+                    <strong>@green_warrior</strong>
+                    <span class="podium-points">8,920 EP</span>
+                    <span class="podium-stat">234 cleanups</span>
+                    <div class="podium-block silver-block">
+                        <span>2nd</span>
+                    </div>
+                </div>
+                <div class="podium-place first">
+                    <div class="crown-icon">👑</div>
+                    <div class="podium-avatar gold-border">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=eco" alt="">
+                        <div class="podium-badge gold">1</div>
+                    </div>
+                    <strong>@eco_queen_priya</strong>
+                    <span class="podium-points">12,450 EP</span>
+                    <span class="podium-stat">387 cleanups</span>
+                    <div class="podium-block gold-block">
+                        <span>1st</span>
+                    </div>
+                </div>
+                <div class="podium-place third">
+                    <div class="podium-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=planet" alt="">
+                        <div class="podium-badge bronze">3</div>
+                    </div>
+                    <strong>@planet_saver</strong>
+                    <span class="podium-points">7,340 EP</span>
+                    <span class="podium-stat">198 cleanups</span>
+                    <div class="podium-block bronze-block">
+                        <span>3rd</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leaderboard List -->
+            <div class="lb-list">
+                <div class="lb-row you">
+                    <span class="lb-rank">4</span>
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=EcoWarrior" alt="">
+                    <div class="lb-user-info">
+                        <strong>@you_ecosort <span class="you-badge">YOU</span></strong>
+                        <span>Level 18 • 15🔥 streak</span>
+                    </div>
+                    <div class="lb-user-stats">
+                        <span>156 cleanups</span>
+                    </div>
+                    <span class="lb-ep">2,450 EP</span>
+                    <span class="lb-trend up"><i class="fas fa-arrow-up"></i> 2</span>
+                </div>
+                <div class="lb-row">
+                    <span class="lb-rank">5</span>
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=clean1" alt="">
+                    <div class="lb-user-info">
+                        <strong>@clean_machine</strong>
+                        <span>Level 16 • 12🔥 streak</span>
+                    </div>
+                    <div class="lb-user-stats">
+                        <span>143 cleanups</span>
+                    </div>
+                    <span class="lb-ep">2,180 EP</span>
+                    <span class="lb-trend down"><i class="fas fa-arrow-down"></i> 1</span>
+                </div>
+                <div class="lb-row">
+                    <span class="lb-rank">6</span>
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=waste2" alt="">
+                    <div class="lb-user-info">
+                        <strong>@waste_not_want_not</strong>
+                        <span>Level 15 • 8🔥 streak</span>
+                    </div>
+                    <div class="lb-user-stats">
+                        <span>128 cleanups</span>
+                    </div>
+                    <span class="lb-ep">1,950 EP</span>
+                    <span class="lb-trend up"><i class="fas fa-arrow-up"></i> 4</span>
+                </div>
+                <div class="lb-row">
+                    <span class="lb-rank">7</span>
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=recy3" alt="">
+                    <div class="lb-user-info">
+                        <strong>@recycle_raja</strong>
+                        <span>Level 14 • 5🔥 streak</span>
+                    </div>
+                    <div class="lb-user-stats">
+                        <span>115 cleanups</span>
+                    </div>
+                    <span class="lb-ep">1,780 EP</span>
+                    <span class="lb-trend same"><i class="fas fa-minus"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== IMPACT DASHBOARD ==================== -->
+    <section class="section impact-section" id="impact">
+        <div class="section-header">
+            <span class="tag">🌍 Real Impact</span>
+            <h2>The Movement's Impact — Live</h2>
+            <p>Every cleanup, every segregation, every report adds up to this</p>
+        </div>
+
+        <div class="impact-grid">
+            <div class="impact-hero-stat">
+                <div class="impact-globe">🌍</div>
+                <div class="impact-big-number">
+                    <span class="counter" data-target="847">0</span>
+                    <span class="impact-unit">Areas Cleaned</span>
+                </div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-icon-wrap green"><i class="fas fa-weight-hanging"></i></div>
+                <span class="counter impact-num" data-target="12400">0</span>
+                <span class="impact-label">kg Waste Collected</span>
+                <span class="impact-equiv">≈ Weight of 2 elephants 🐘</span>
+            </div>
+            <div class="impact-card">
+                <div class="impact-icon-wrap blue"><i class="fas fa-cloud"></i></div>
+                <span class="counter impact-num" data-target="8920">0</span>
+                <span class="impact-label">kg CO₂ Prevented</span>
+                <span class="impact-equiv">≈ 35,680 km not driven 🚗</span>
+            </div>
+            <div class="impact-card">
+                <div class="impact-icon-wrap purple"><i class="fas fa-users"></i></div>
+                <span class="counter impact-num" data-target="15847">0</span>
+                <span class="impact-label">Active EcoWarriors</span>
+                <span class="impact-equiv">Across 48 cities 📍</span>
+            </div>
+            <div class="impact-card">
+                <div class="impact-icon-wrap orange"><i class="fas fa-flag"></i></div>
+                <span class="counter impact-num" data-target="2340">0</span>
+                <span class="impact-label">Reports Filed</span>
+                <span class="impact-equiv">67% resolved by government ✅</span>
+            </div>
+            <div class="impact-card">
+                <div class="impact-icon-wrap teal"><i class="fas fa-tint"></i></div>
+                <span class="counter impact-num" data-target="124500">0</span>
+                <span class="impact-label">Liters Water Saved</span>
+                <span class="impact-equiv">≈ 830 bathtubs 🛁</span>
+            </div>
+            <div class="impact-card">
+                <div class="impact-icon-wrap pink"><i class="fas fa-tree"></i></div>
+                <span class="counter impact-num" data-target="127">0</span>
+                <span class="impact-label">Trees Equivalent Saved</span>
+                <span class="impact-equiv">By recycling paper & cardboard 🌲</span>
+            </div>
+
+            <!-- Impact Chart -->
+            <div class="impact-chart-card wide">
+                <h3><i class="fas fa-chart-line"></i> Movement Growth</h3>
+                <div class="chart-wrap">
+                    <canvas id="impactChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Heatmap Placeholder -->
+            <div class="impact-chart-card wide">
+                <h3><i class="fas fa-map"></i> Cleanup Heatmap — India</h3>
+                <div class="heatmap-container">
+                    <div class="heatmap-visual">
+                        <div class="heat-dot" style="top:25%;left:55%;--size:40px;--color:rgba(0,210,106,0.8)"><span>Delhi<br>234</span></div>
+                        <div class="heat-dot" style="top:45%;left:48%;--size:35px;--color:rgba(0,210,106,0.7)"><span>Mumbai<br>198</span></div>
+                        <div class="heat-dot" style="top:60%;left:52%;--size:45px;--color:rgba(0,210,106,0.9)"><span>Bengaluru<br>312</span></div>
+                        <div class="heat-dot" style="top:50%;left:60%;--size:30px;--color:rgba(0,210,106,0.6)"><span>Hyderabad<br>145</span></div>
+                        <div class="heat-dot" style="top:55%;left:42%;--size:25px;--color:rgba(0,210,106,0.5)"><span>Pune<br>98</span></div>
+                        <div class="heat-dot" style="top:35%;left:62%;--size:28px;--color:rgba(0,210,106,0.6)"><span>Kolkata<br>124</span></div>
+                        <div class="heat-dot" style="top:55%;left:55%;--size:32px;--color:rgba(0,210,106,0.7)"><span>Chennai<br>167</span></div>
+                        <div class="map-outline">🗺️ INDIA</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HOW IT WORKS ==================== -->
+    <section class="section how-section">
+        <div class="section-header">
+            <span class="tag">🚀 How It Works</span>
+            <h2>4 Steps to Be an EcoWarrior</h2>
+        </div>
+        <div class="how-grid">
+            <div class="how-step">
+                <div class="how-num">01</div>
+                <div class="how-icon">📸</div>
+                <h3>Spot & Snap</h3>
+                <p>See a dirty area? Take a "before" photo and start the challenge</p>
+            </div>
+            <div class="how-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="how-step">
+                <div class="how-num">02</div>
+                <div class="how-icon">🧹</div>
+                <h3>Clean & Segregate</h3>
+                <p>Clean up the area and properly segregate the waste into categories</p>
+            </div>
+            <div class="how-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="how-step">
+                <div class="how-num">03</div>
+                <div class="how-icon">🤖</div>
+                <h3>Upload & Verify</h3>
+                <p>Post before/after photos. Our AI verifies the cleanup and scores you</p>
+            </div>
+            <div class="how-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="how-step">
+                <div class="how-num">04</div>
+                <div class="how-icon">🏆</div>
+                <h3>Earn & Compete</h3>
+                <p>Earn EcoPoints, badges, climb leaderboards, and win real rewards!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon"><i class="fas fa-fist-raised"></i></div>
+                        <span>Eco<span class="green">Rally</span></span>
+                    </div>
+                    <p>A social movement platform turning waste cleanup into viral challenges. 
+                    Real action. Real rewards. Real impact.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <a href="#challenges">Challenges</a>
+                    <a href="#feed">Community Feed</a>
+                    <a href="#report">Report Area</a>
+                    <a href="#leaderboard">Leaderboard</a>
+                    <a href="#impact">Impact Dashboard</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Government Partners</h4>
+                    <a href="#">Swachh Bharat Mission</a>
+                    <a href="#">Municipal Corporations</a>
+                    <a href="#">CPCB Portal</a>
+                    <a href="#">Smart Cities Mission</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Technology</h4>
+                    <a href="#">AI Verification</a>
+                    <a href="#">Blockchain Rewards</a>
+                    <a href="#">Open API</a>
+                    <a href="#">Partner with Us</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 EcoRally — Built for Hackathon 🏆 | Making cleanups cool since Day 1 💚</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MODALS ==================== -->
+
+    <!-- Upload Modal -->
+    <div class="modal-overlay" id="uploadModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-camera"></i> Share Your Cleanup</h3>
+                <button class="modal-close" onclick="closeModal('uploadModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="upload-type-selector">
+                    <button class="upload-type active" onclick="selectUploadType(this, 'before-after')">
+                        📸 Before/After
+                    </button>
+                    <button class="upload-type" onclick="selectUploadType(this, 'segregation')">
+                        ♻️ Segregation Proof
+                    </button>
+                    <button class="upload-type" onclick="selectUploadType(this, 'story')">
+                        📝 Impact Story
+                    </button>
+                </div>
+                <div class="upload-zones">
+                    <div class="upload-zone">
+                        <label>📷 Before Photo</label>
+                        <div class="drop-area" onclick="this.querySelector('input').click()">
+                            <input type="file" accept="image/*" hidden onchange="previewUpload(event, 'before')">
+                            <i class="fas fa-plus"></i>
+                            <div id="beforePreview"></div>
+                        </div>
+                    </div>
+                    <div class="upload-zone">
+                        <label>✨ After Photo</label>
+                        <div class="drop-area" onclick="this.querySelector('input').click()">
+                            <input type="file" accept="image/*" hidden onchange="previewUpload(event, 'after')">
+                            <i class="fas fa-plus"></i>
+                            <div id="afterPreview"></div>
+                        </div>
+                    </div>
+                </div>
+                <select class="form-select" id="challengeSelect">
+                    <option value="">Select Challenge (Optional)</option>
+                    <option value="cleanmystreet">#CleanMyStreet</option>
+                    <option value="segregationpro">#SegregationPro</option>
+                    <option value="collegecleanwars">#CollegeCleanWars</option>
+                    <option value="beachcleanup">#BeachCleanup</option>
+                    <option value="zerowaste">#ZeroWasteDay</option>
+                </select>
+                <textarea class="form-textarea" placeholder="Tell your story... What did you clean? How did it feel? Tag friends!"></textarea>
+                <div class="upload-extras">
+                    <button class="extra-btn"><i class="fas fa-map-marker-alt"></i> Add Location</button>
+                    <button class="extra-btn"><i class="fas fa-tag"></i> Tag Friends</button>
+                    <button class="extra-btn"><i class="fas fa-weight-hanging"></i> Add Weight</button>
+                </div>
+                <button class="btn-post" onclick="submitPost()">
+                    <i class="fas fa-paper-plane"></i> Post & Earn Points
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Challenge Modal -->
+    <div class="modal-overlay" id="createChallengeModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-rocket"></i> Create a Challenge</h3>
+                <button class="modal-close" onclick="closeModal('createChallengeModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-input" placeholder="Challenge Name (e.g., Clean My Campus)">
+                <input type="text" class="form-input" placeholder="Hashtag (e.g., #CleanMyCampus)">
+                <textarea class="form-textarea" placeholder="Challenge description and rules..."></textarea>
+                <div class="form-row">
+                    <div>
+                        <label>Start Date</label>
+                        <input type="date" class="form-input">
+                    </div>
+                    <div>
+                        <label>End Date</label>
+                        <input type="date" class="form-input">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div>
+                        <label>Reward Points</label>
+                        <input type="number" class="form-input" placeholder="e.g., 200">
+                    </div>
+                    <div>
+                        <label>Max Participants</label>
+                        <input type="number" class="form-input" placeholder="e.g., 500">
+                    </div>
+                </div>
+                <button class="btn-post" onclick="createChallenge()">
+                    <i class="fas fa-rocket"></i> Launch Challenge
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Confetti Target -->
+
+    <script src="app.js"></script>
+</body>
+</html>
