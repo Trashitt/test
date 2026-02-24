@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign up • TechFest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="auth.css" />
+  </head>
+  <body>
+    <!-- Background Lottie animation (autoplay, loop) -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <lottie-player class="bg-lottie" autoplay loop mode="normal" background="transparent" aria-hidden="true" style="position:fixed;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:1;"> 
+      <source src="https://assets-v2.lottiefiles.com/a/17adacae-1161-11ee-9614-8b76f8851398/rqsfnFyxlr.lottie"></source>
+    </lottie-player>
+    <div class="auth-overlay" aria-hidden="true"></div>
+    <div id="lottie-fallback" class="lottie-fallback" aria-hidden="true" style="display:none;position:fixed;top:16px;left:16px;z-index:9999;padding:10px 14px;background:rgba(0,0,0,0.7);color:#fff;border-radius:6px;font-size:13px">Animation load failed — see console</div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sign up • TechFest (React)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="auth.css">
+    <style>
+      /* animated gradient background (no external assets) */
+      .bg-anim{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,#123b5a,#1b8a6b);background-size:400% 400%;animation:shift 12s ease-in-out infinite}
+      @keyframes shift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+      .app-root{position:relative;z-index:3;min-height:100vh;display:flex;align-items:center;flex-direction:column;justify-content:flex-start;padding-top:64px}
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div class="bg-anim" aria-hidden="true"></div>
+
+    <!-- React (development via CDN) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const {useState} = React;
+
+      function Signup(){
+        const [form,setForm] = useState({email:'',fullname:'',username:'',password:''});
+        const onChange = e => setForm({...form,[e.target.name]: e.target.value});
+        const onSubmit = e => { e.preventDefault();
+          if(!form.username) return alert('Choose a username');
+          alert('Signed up (demo): ' + form.username);
+        };
+
+        return (
+          <div className="app-root">
+            <header className="mini-nav"><div className="nav-inner"><div className="logo">Eco<span className="green">Rally</span></div><div></div></div></header>
+            <main style={{width:'100%',display:'flex',justifyContent:'center'}}>
+              <section className="auth-card">
+                <div className="banner-title">Create your account on</div>
+                <div className="logo">EcoRally</div>
+                <form className="auth-form" onSubmit={onSubmit}>
+                  <input name="email" value={form.email} onChange={onChange} type="email" placeholder="Mobile number or email" required />
+                  <input name="fullname" value={form.fullname} onChange={onChange} type="text" placeholder="Full name" required />
+                  <input name="username" value={form.username} onChange={onChange} type="text" placeholder="Username" required />
+                  <input name="password" value={form.password} onChange={onChange} type="password" placeholder="Password" required />
+                  <button className="primary" type="submit">Sign up</button>
+                </form>
+              </section>
+            </main>
+            <section className="auth-switch"><p>Have an account? <a href="loginpage.html">Log in</a></p></section>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById('root')).render(<Signup />);
+    </script>
+  </body>
+</html>
+              if(!r.ok) { console.error('[Lottie] non-ok response', r.status); showFallback(); }
