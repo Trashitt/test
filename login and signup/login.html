@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Neon Login</title>
+    <meta name="description" content="A sleek, modern sign-in page with subtle animations, interactive inputs, and a 3D-style illustration panel." />
+    <meta name="keywords" content="login, sign in, modern UI, neon, form, authentication, UI design" />
+    <meta property="og:title" content="Neon Login" />
+    <meta property="og:description" content="A sleek, modern sign-in page with subtle animations, interactive inputs, and a 3D-style illustration panel." />
+    <meta name="twitter:title" content="Neon Login" />
+    <meta name="twitter:description" content="A sleek, modern sign-in page with subtle animations, interactive inputs, and a 3D-style illustration panel." />
+
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+
+    <link href="styles/global.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root{
+            --bg-0:#000000;
+            --bg-1:#000000;
+            --panel:#000000;
+            --panel-2:#000000;
+            --text:#E9ECF5;
+            --muted:#9AA3B2;
+            --stroke:rgba(255,255,255,.10);
+            --stroke-2:rgba(255,255,255,.14);
+
+            --primary-color:#7C5CFF; /* single primary accent */
+            --secondary-color:rgba(124,92,255,.14);
+
+            --success:#2EE59D;
+            --danger:#FF4D6D;
+            --warning:#FFC857;
+
+            --radius:18px;
+            --radius-sm:12px;
+            --shadow: 0 18px 60px rgba(0,0,0,.55);
+            --shadow-soft: 0 10px 30px rgba(0,0,0,.35);
+        }
+    }
+
+    @layer base {
+        html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
+        body{
+            background: #000000;
+            color: var(--text);
+            position: relative;
+        }
+        body::before{
+            content:"";
+            position:fixed;
+            top:0; left:0; right:0; bottom:0;
+            background:inherit;
+            z-index:-1;
+        }
+        #root{
+            position: relative;
+            z-index: 10;
+            height: 100vh;
+            overflow: auto;
+        }
+        video#bg-video{
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            pointer-events: none;
+            filter: brightness(0.1);
+        }
+        #bg-overlay{
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            pointer-events: none;
+        }
+        * { -webkit-tap-highlight-color: transparent; }
+    }
+
+    @layer components {
+        .glass {
+            @apply backdrop-blur-xl;
+            background: rgba(0, 0, 0, 0.85);
+            border: 1px solid var(--stroke);
+            box-shadow: 0 0 40px rgba(46, 229, 157, 0.15), var(--shadow);
+            border-radius: var(--radius);
+        }
+
+        .btn {
+            @apply inline-flex items-center justify-center gap-2 font-semibold transition duration-200;
+            border-radius: 999px;
+            height: 44px;
+            padding: 0 16px;
+            border: 1px solid var(--stroke);
+            background: rgba(255,255,255,.04);
+        }
+        .btn:hover { background: rgba(255,255,255,.06); }
+
+        .btn-primary{
+            border: none;
+            background: linear-gradient(90deg, rgba(255,93,126,.95), rgba(124,92,255,.95));
+            box-shadow: 0 14px 30px rgba(124,92,255,.18);
+        }
+        .btn-primary:hover{
+            filter: brightness(1.02);
+        }
+
+        .input {
+            @apply w-full bg-transparent outline-none transition duration-200;
+            height: 44px;
+        }
+
+        .field {
+            @apply w-full;
+            border-bottom: 1px solid rgba(255,255,255,.22);
+        }
+        .field:focus-within { border-bottom-color: rgba(124,92,255,.75); }
+    }
+
+    @layer utilities {
+        .noise{
+            position: relative;
+        }
+        .noise:before{
+            content:"";
+            position:absolute; inset:0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+            opacity:.10;
+            mix-blend-mode: overlay;
+            pointer-events:none;
+            border-radius: inherit;
+        }
+
+        .ring-soft{
+            box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset, 0 24px 60px rgba(0,0,0,.40);
+        }
+
+        .anim-float{
+            animation: floaty 6s ease-in-out infinite;
+        }
+        @keyframes floaty{
+            0%,100%{ transform: translateY(0px); }
+            50%{ transform: translateY(-10px); }
+        }
+
+        .anim-glow{
+            animation: glow 2.8s ease-in-out infinite;
+        }
+        @keyframes glow{
+            0%,100%{ opacity:.55; transform: translateY(0); }
+            50%{ opacity:.85; transform: translateY(-2px); }
+        }
+
+        .animate-fadeIn{
+            animation: fadeIn 0.3s ease-in-out forwards;
+        }
+        @keyframes fadeIn{
+            0%{ opacity: 0; transform: translateY(5px) scale(0.95); }
+            100%{ opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .grad-text{
+            background: linear-gradient(90deg, rgba(255,93,126,.95), rgba(124,92,255,.95));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    }
+    </style>
+
+</head>
+
+<body data-name="body" data-file="index.html">
+    <video id="bg-video" autoplay muted loop playsinline>
+      <source src="90877-629483574.mp4" type="video/mp4">
+    </video>
+    <div id="bg-overlay"></div>
+    <div id="root" data-name="root" data-file="index.html"></div>
+
+    <script type="text/babel" src="utils/dom.js"></script>
+    <script type="text/babel" src="utils/validators.js"></script>
+    <script type="text/babel" src="utils/fakeAuth.js"></script>
+
+    <script type="text/babel" src="components/AlertToast.js"></script>
+    <script type="text/babel" src="components/Checkbox.js"></script>
+    <script type="text/babel" src="components/TextField.js"></script>
+    <script type="text/babel" src="components/SocialButton.js"></script>
+    <script type="text/babel" src="components/OrDivider.js"></script>
+    <script type="text/babel" src="components/HeroIllustration.js"></script>
+    <script type="text/babel" src="components/AppShell.js"></script>
+
+    <script type="text/babel" src="app.js"></script>
+</body>
+</html>

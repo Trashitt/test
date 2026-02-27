@@ -1,0 +1,5 @@
+/* Global non-tailwind styles only (Tailwind layers live in index.html) */
+:root { color-scheme: dark; }
+body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; }
+::selection { background: rgba(124,92,255,.35); }
+a { color: inherit; }
