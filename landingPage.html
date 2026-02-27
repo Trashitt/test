@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrashIt - Smart Segregation & Recycling</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="landingPage.css">
+
+    
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="landing.html" class="logo">
+                <img src="logo.png" alt="TrashIt Logo" class="logo-img">
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="active">Home</a>
+                <a href="#how-it-works">How it Works</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="nav-auth">
+                <button class="btn-login" onclick="window.location.href='index.html'">Log In</button>
+                <button class="btn-signup" onclick="window.location.href='index.html'">Sign Up Free</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="landing-hero" id="home">
+        <div class="landing-hero-content">
+            <div class="tag" style="margin-bottom: 20px;">
+                <span class="live-dot" style="display:inline-block; width:8px; height:8px; background:var(--green); border-radius:50%; margin-right:8px; animation: pulse 2s infinite;"></span>
+                Smart Segregation & Recycling
+            </div>
+            <h1>
+                Don't Trash It.<br>
+                <span class="gradient-text">Cash It & Clean It.</span>
+            </h1>
+            <p>
+                Join the ultimate eco-movement. Use AI to segregate your waste, locate local recycling centers, and earn rewards for keeping the planet green.
+            </p>
+            <div class="hero-btn-group">
+                <button class="btn-signup btn-large" onclick="window.location.href='index.html'">
+                    <i class="fas fa-rocket"></i> Get Started
+                </button>
+                <button class="btn-login btn-large">
+                    <i class="fas fa-play-circle"></i> Watch Demo
+                </button>
+            </div>
+            <div class="hero-proof" style="margin-top: 20px;">
+                <span class="proof-text" style="color: var(--text-2); font-size: 14px;">
+                    <i class="fas fa-shield-alt" style="color: var(--green);"></i> 100% Free to use. Powered by AI.
+                </span>
+            </div>
+        </div>
+
+        <div class="landing-hero-visual">
+            <div class="orb-container">
+                <div class="orbital-ring ring-1"></div>
+                <div class="orbital-ring ring-2"></div>
+                <div class="tech-orb"></div>
+                <img src="logo.png" alt="TrashIt" class="orb-logo">
+            </div>
+            
+            <div class="floating-card fc-1">
+                <i class="fas fa-camera"></i>
+                <strong>AI Scanner</strong>
+                <span>94% Accuracy</span>
+            </div>
+
+            <div class="floating-card fc-2">
+                <i class="fas fa-map-marked-alt"></i>
+                <strong>Local Recycling</strong>
+                <span>Find drop-offs</span>
+            </div>
+
+            <div class="floating-card fc-3">
+                <i class="fas fa-leaf"></i>
+                <strong>EcoPoints</strong>
+                <span>Trash to rewards</span>
+            </div>
+
+            <div class="floating-card fc-4">
+                <i class="fas fa-users"></i>
+                <strong>Community</strong>
+                <span>Join challenges</span>
+            </div>
+
+            <div class="floating-card fc-5">
+                <i class="fas fa-flag"></i>
+                <strong>Report Issues</strong>
+                <span>Fix your city</span>
+            </div>
+
+            <div class="floating-card fc-6">
+                <i class="fas fa-chart-line"></i>
+                <strong>Impact Tracker</strong>
+                <span>Live CO₂ stats</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+        <div class="section-header">
+            <span class="tag">🚀 The Process</span>
+            <h2>How TrashIt Works</h2>
+            <p>Three simple steps to make a real impact on the environment.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                <h3>1. AI Segregation</h3>
+                <p>Not sure which bin it goes in? Snap a photo. Our advanced AI will instantly tell you if it's wet, dry, recyclable, or e-waste.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-recycle"></i></div>
+                <h3>2. Locate Centers</h3>
+                <p>Use our interactive map to find the nearest certified recycling facilities and drop-off points for hazardous or electronic waste.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-gift"></i></div>
+                <h3>3. Earn & Compete</h3>
+                <p>Log your cleanups, maintain your daily streak, climb the college/city leaderboards, and redeem your EcoPoints for real rewards.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="padding: 40px 24px; text-align: center; background: var(--dark-2); border-top: 1px solid var(--glass-border);">
+        <img src="logo.png" alt="TrashIt" class="logo-img" style="height: 40px; margin-bottom: 20px;">
+        <p style="color: var(--text-3); font-size: 14px;">© 2024 TrashIt. Built for a greener tomorrow. 🌍</p>
+    </footer>
+
+</body>
+</html>
