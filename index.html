@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoRally - Turn Cleanup Into a Movement 🌍</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>TrashItt-Homepage🌍</title>
+    <link rel="stylesheet" href="style4.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -18,16 +18,17 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-inner">
+            
             <a href="#" class="logo">
-                <div class="logo-icon"><i class="fas fa-fist-raised"></i></div>
-                <span>Eco<span class="green">Rally</span></span>
-            </a>
+    <img src="logo.png" alt="TrashIt Logo" class="logo-img">
+</a>
+
             <div class="nav-links" id="navLinks">
                 <a href="#home" class="active">Home</a>
                 <a href="#challenges">Challenges</a>
-                <a href="#feed">Feed</a>
+                <a href="#segregate">Segregate</a>
+                <a href="#recycle">Recycle</a> <a href="#feed">Feed</a>
                 <a href="#report">Report</a>
-                <a href="#leaderboard">Leaderboard</a>
                 <a href="#impact">Impact</a>
             </div>
             <div class="nav-right">
@@ -73,7 +74,7 @@
                 making a real difference. 🌍♻️
             </p>
             <div class="hero-actions">
-                <button class="btn-hero" onclick="window.location.href='../loginpage.html'">
+                <button class="btn-hero" onclick="scrollTo('challenges')">
                     <i class="fas fa-bolt"></i> Join a Challenge
                 </button>
                 <button class="btn-hero-outline" onclick="scrollTo('report')">
@@ -93,48 +94,98 @@
             </div>
         </div>
         <div class="hero-right">
-            <div class="phone-mockup">
-                <div class="phone-screen">
-                    <div class="mock-post">
-                        <div class="mock-header">
-                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=priya" alt="">
-                            <div>
-                                <strong>@priya_eco</strong>
-                                <span>Mumbai • 2h ago</span>
-                            </div>
-                            <span class="verified-badge">✓</span>
-                        </div>
-                        <div class="before-after-mock">
-                            <div class="ba-side before">
-                                <span class="ba-label">BEFORE</span>
-                                <div class="ba-img dirty">🗑️🗑️🗑️</div>
-                            </div>
-                            <div class="ba-divider">
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
-                            <div class="ba-side after">
-                                <span class="ba-label">AFTER</span>
-                                <div class="ba-img clean">🌿✨🌸</div>
-                            </div>
-                        </div>
-                        <div class="mock-actions">
-                            <span><i class="fas fa-heart" style="color:#ff4757"></i> 2.4K</span>
-                            <span><i class="fas fa-comment"></i> 183</span>
-                            <span><i class="fas fa-share"></i> Share</span>
-                        </div>
-                        <div class="mock-reward">
-                            <i class="fas fa-trophy"></i> +150 EcoPoints Earned!
-                        </div>
+            <div class="hero-tag">
+            <span >🏆 Leaderboard</span>
+           
+        </div>
+
+        <div class="leaderboard-container">
+            
+            <!-- Podium -->
+            <div class="podium" id="podium">
+                <div class="podium-place second">
+                    <div class="podium-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=green" alt="">
+                        <div class="podium-badge silver">2</div>
+                    </div>
+                    <strong>@green_warrior</strong>
+                    <span class="podium-points">8,920 EP</span>
+                    <span class="podium-stat">234 cleanups</span>
+                    <div class="podium-block silver-block">
+                        <span>2nd</span>
                     </div>
                 </div>
-                <div class="phone-notch"></div>
+                <div class="podium-place first">
+                    <div class="crown-icon">👑</div>
+                    <div class="podium-avatar gold-border">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=eco" alt="">
+                        <div class="podium-badge gold">1</div>
+                    </div>
+                    <strong>@eco_queen_priya</strong>
+                    <span class="podium-points">12,450 EP</span>
+                    <span class="podium-stat">387 cleanups</span>
+                    <div class="podium-block gold-block">
+                        <span>1st</span>
+                    </div>
+                </div>
+                <div class="podium-place third">
+                    <div class="podium-avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=planet" alt="">
+                        <div class="podium-badge bronze">3</div>
+                    </div>
+                    <strong>@planet_saver</strong>
+                    <span class="podium-points">7,340 EP</span>
+                    <span class="podium-stat">198 cleanups</span>
+                    <div class="podium-block bronze-block">
+                        <span>3rd</span>
+                    </div>
+                </div>
             </div>
-            <div class="floating-badges">
-                <div class="float-badge b1">🏆 #1 College</div>
-                <div class="float-badge b2">🔥 15 Day Streak</div>
-                <div class="float-badge b3">♻️ 500+ Cleaned</div>
-                <div class="float-badge b4">🌍 City Champion</div>
+
+            <!-- Leaderboard List -->
+            <div class="lb-list">
+                <div class="lb-row you">
+                    <span class="lb-rank">4</span>
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=EcoWarrior" alt="">
+                    <div class="lb-user-info">
+                        <strong>@you_ecosort <span class="you-badge">YOU</span></strong>
+                        <span>Level 18 • 15🔥 streak</span>
+                    </div>
+                    <div class="lb-user-stats">
+                        <span>156 cleanups</span>
+                    </div>
+                    <span class="lb-ep">2,450 EP</span>
+                    <span class="lb-trend up"><i class="fas fa-arrow-up"></i> 2</span>
+                </div>
+                <div class="lb-row">
+                    <span class="lb-rank">5</span>
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=clean1" alt="">
+                    <div class="lb-user-info">
+                        <strong>@clean_machine</strong>
+                        <span>Level 16 • 12🔥 streak</span>
+                    </div>
+                    <div class="lb-user-stats">
+                        <span>143 cleanups</span>
+                    </div>
+                    <span class="lb-ep">2,180 EP</span>
+                    <span class="lb-trend down"><i class="fas fa-arrow-down"></i> 1</span>
+                </div>
+                <div class="lb-row">
+                    <span class="lb-rank">6</span>
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=waste2" alt="">
+                    <div class="lb-user-info">
+                        <strong>@waste_not_want_not</strong>
+                        <span>Level 15 • 8🔥 streak</span>
+                    </div>
+                    <div class="lb-user-stats">
+                        <span>128 cleanups</span>
+                    </div>
+                    <span class="lb-ep">1,950 EP</span>
+                    <span class="lb-trend up"><i class="fas fa-arrow-up"></i> 4</span>
+                </div>
+                
             </div>
+        </div>
         </div>
     </section>
 
@@ -398,6 +449,176 @@
         </div>
     </section>
 
+    <section class="section segregate-section" id="segregate">
+        <div class="section-header">
+            <span class="tag">♻️ Smart Segregation</span>
+            <h2>Know Your Waste</h2>
+            <p>Upload a photo of your waste for AI sorting, or search our quick disposal guide.</p>
+        </div>
+
+        <div class="segregate-topbar">
+            <div class="seg-search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search for a waste item (e.g., 'Pizza box', 'Batteries')...">
+                <button class="btn-search">Search</button>
+            </div>
+        </div>
+
+        <div class="segregate-ai-tool">
+            <div class="ai-upload-box" onclick="document.getElementById('aiWasteUpload').click()">
+                <input type="file" id="aiWasteUpload" accept="image/*" hidden>
+                <div class="upload-icon-pulse">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <h3>Scan Your Waste</h3>
+                <p>Drop an image here or click to upload for instant AI classification</p>
+            </div>
+            <button class="btn-segregate-ai">
+                <i class="fas fa-robot"></i> Segregate Waste
+            </button>
+        </div>
+
+        <div class="waste-types-grid">
+            <div class="waste-type-card green-card">
+                <div class="waste-icon"><i class="fas fa-leaf"></i></div>
+                <h3>Wet / Organic Waste</h3>
+                <p class="waste-info">Biodegradable waste like food scraps, fruit peels, meat, and coffee grounds.</p>
+                <div class="waste-dispose">
+                    <strong><i class="fas fa-trash"></i> How to dispose:</strong> Throw in the Green Bin. Can be composted at home or sent to municipal composting facilities.
+                </div>
+            </div>
+            
+            <div class="waste-type-card blue-card">
+                <div class="waste-icon"><i class="fas fa-box"></i></div>
+                <h3>Dry Waste</h3>
+                <p class="waste-info">Non-biodegradable items that are not easily recyclable (e.g., multi-layer plastics, certain wrappers, rubber).</p>
+                <div class="waste-dispose">
+                    <strong><i class="fas fa-trash"></i> How to dispose:</strong> Clean and dry before throwing in the Blue Bin to avoid contaminating other waste.
+                </div>
+            </div>
+            
+            <div class="waste-type-card teal-card">
+                <div class="waste-icon"><i class="fas fa-recycle"></i></div>
+                <h3>Recyclable Waste</h3>
+                <p class="waste-info">Clean rigid plastics, glass bottles, metal cans, and aluminum foil.</p>
+                <div class="waste-dispose">
+                    <strong><i class="fas fa-trash"></i> How to dispose:</strong> Rinse thoroughly to remove food residue. Place in designated recycling bins for material recovery.
+                </div>
+            </div>
+            
+            <div class="waste-type-card yellow-card">
+                <div class="waste-icon"><i class="fas fa-newspaper"></i></div>
+                <h3>Paper & Cardboard</h3>
+                <p class="waste-info">Newspapers, cardboard boxes, office paper, and magazines.</p>
+                <div class="waste-dispose">
+                    <strong><i class="fas fa-trash"></i> How to dispose:</strong> Keep dry and flat. Throw in the Yellow Bin. Do NOT include oil-stained or food-soiled paper (like used pizza boxes).
+                </div>
+            </div>
+            
+            <!-- <div class="waste-type-card red-card">
+                <div class="waste-icon"><i class="fas fa-laptop"></i></div>
+                <h3>Electronic (E-Waste)</h3>
+                <p class="waste-info">Old phones, laptops, batteries, cables, bulbs, and broken appliances.</p>
+                <div class="waste-dispose">
+                    <strong><i class="fas fa-trash"></i> How to dispose:</strong> NEVER throw in regular bins. Drop off at certified E-waste collection centers or designated Red/Hazardous bins.
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <section class="section recycle-section" id="recycle">
+        <div class="section-header">
+            <span class="tag">🔄 Circular Economy</span>
+            <h2>Recycle & Repurpose</h2>
+            <p>Understand how your waste gets a second life and find drop-off centers near you.</p>
+        </div>
+
+        <h3 class="subsection-title"><i class="fas fa-sync-alt"></i> The Journey of a Plastic Bottle</h3>
+        <div class="process-loop">
+            <div class="process-step">
+                <div class="step-icon"><i class="fas fa-trash-alt"></i></div>
+                <h4>1. Collection</h4>
+                <p>Waste is picked up from your blue bins and transported to a recovery facility.</p>
+            </div>
+            <div class="process-arrow"><i class="fas fa-chevron-right"></i></div>
+            <div class="process-step">
+                <div class="step-icon"><i class="fas fa-filter"></i></div>
+                <h4>2. Sorting</h4>
+                <p>Machines and humans separate plastics by type, color, and density.</p>
+            </div>
+            <div class="process-arrow"><i class="fas fa-chevron-right"></i></div>
+            <div class="process-step">
+                <div class="step-icon"><i class="fas fa-cogs"></i></div>
+                <h4>3. Processing</h4>
+                <p>Plastics are washed, shredded into flakes, and melted into tiny pellets.</p>
+            </div>
+            <div class="process-arrow"><i class="fas fa-chevron-right"></i></div>
+            <div class="process-step">
+                <div class="step-icon"><i class="fas fa-tshirt"></i></div>
+                <h4>4. Rebirth</h4>
+                <p>Pellets are spun into polyester for clothes, shoes, or molded into new bottles.</p>
+            </div>
+        </div>
+
+        <h3 class="subsection-title"><i class="fas fa-map-marked-alt"></i> Find Local Recycling Centers</h3>
+        <div class="centers-layout">
+            <div class="centers-list">
+                <div class="seg-search-box centers-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Enter your pin code or city...">
+                </div>
+
+                <div class="center-card">
+                    <div class="center-dist">2.4 km</div>
+                    <h4>EcoWaste E-Dropoff</h4>
+                    <p class="center-address">124 Tech Park Road, Sector 5</p>
+                    <div class="center-tags">
+                        <span class="c-tag e-waste">E-Waste</span>
+                        <span class="c-tag batteries">Batteries</span>
+                    </div>
+                    <button class="btn-directions"><i class="fas fa-location-arrow"></i> Get Directions</button>
+                </div>
+
+                <div class="center-card">
+                    <div class="center-dist">3.8 km</div>
+                    <h4>GreenCycle Plastics Hub</h4>
+                    <p class="center-address">Industrial Estate, Phase 2</p>
+                    <div class="center-tags">
+                        <span class="c-tag plastic">Rigid Plastics</span>
+                        <span class="c-tag metal">Metals</span>
+                    </div>
+                    <button class="btn-directions"><i class="fas fa-location-arrow"></i> Get Directions</button>
+                </div>
+
+                <div class="center-card">
+                    <div class="center-dist">5.1 km</div>
+                    <h4>City Paper & Glass Recovery</h4>
+                    <p class="center-address">Near Central Market Square</p>
+                    <div class="center-tags">
+                        <span class="c-tag paper">Paper/Cardboard</span>
+                        <span class="c-tag glass">Glass</span>
+                    </div>
+                    <button class="btn-directions"><i class="fas fa-location-arrow"></i> Get Directions</button>
+                </div>
+            </div>
+
+            <div class="centers-map">
+                <div class="map-interface">
+                    <div class="map-pin active-pin" style="top: 30%; left: 40%;">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="pin-pulse"></div>
+                    </div>
+                    <div class="map-pin" style="top: 60%; left: 70%;"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="map-pin" style="top: 45%; left: 20%;"><i class="fas fa-map-marker-alt"></i></div>
+                    
+                    <div class="map-overlay-text">
+                        <i class="fas fa-globe-asia"></i>
+                        <span>Interactive Map Area</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- ==================== SOCIAL FEED ==================== -->
     <section class="section feed-section" id="feed">
         <div class="section-header">
@@ -923,131 +1144,7 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- ==================== LEADERBOARD ==================== -->
-    <section class="section leaderboard-section" id="leaderboard">
-        <div class="section-header">
-            <span class="tag">🏆 Leaderboard</span>
-            <h2>Who's Leading the Movement?</h2>
-            <p>Individuals, colleges, and cities competing for a cleaner world</p>
-        </div>
-
-        <div class="leaderboard-container">
-            <!-- Leaderboard Tabs -->
-            <div class="lb-tabs">
-                <button class="lb-tab active" onclick="switchLB(this, 'individuals')">
-                    <i class="fas fa-user"></i> Individuals
-                </button>
-                <button class="lb-tab" onclick="switchLB(this, 'colleges')">
-                    <i class="fas fa-graduation-cap"></i> Colleges
-                </button>
-                <button class="lb-tab" onclick="switchLB(this, 'cities')">
-                    <i class="fas fa-city"></i> Cities
-                </button>
-                <button class="lb-tab" onclick="switchLB(this, 'companies')">
-                    <i class="fas fa-building"></i> Companies
-                </button>
-            </div>
-
-            <!-- Podium -->
-            <div class="podium" id="podium">
-                <div class="podium-place second">
-                    <div class="podium-avatar">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=green" alt="">
-                        <div class="podium-badge silver">2</div>
-                    </div>
-                    <strong>@green_warrior</strong>
-                    <span class="podium-points">8,920 EP</span>
-                    <span class="podium-stat">234 cleanups</span>
-                    <div class="podium-block silver-block">
-                        <span>2nd</span>
-                    </div>
-                </div>
-                <div class="podium-place first">
-                    <div class="crown-icon">👑</div>
-                    <div class="podium-avatar gold-border">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=eco" alt="">
-                        <div class="podium-badge gold">1</div>
-                    </div>
-                    <strong>@eco_queen_priya</strong>
-                    <span class="podium-points">12,450 EP</span>
-                    <span class="podium-stat">387 cleanups</span>
-                    <div class="podium-block gold-block">
-                        <span>1st</span>
-                    </div>
-                </div>
-                <div class="podium-place third">
-                    <div class="podium-avatar">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=planet" alt="">
-                        <div class="podium-badge bronze">3</div>
-                    </div>
-                    <strong>@planet_saver</strong>
-                    <span class="podium-points">7,340 EP</span>
-                    <span class="podium-stat">198 cleanups</span>
-                    <div class="podium-block bronze-block">
-                        <span>3rd</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Leaderboard List -->
-            <div class="lb-list">
-                <div class="lb-row you">
-                    <span class="lb-rank">4</span>
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=EcoWarrior" alt="">
-                    <div class="lb-user-info">
-                        <strong>@you_ecosort <span class="you-badge">YOU</span></strong>
-                        <span>Level 18 • 15🔥 streak</span>
-                    </div>
-                    <div class="lb-user-stats">
-                        <span>156 cleanups</span>
-                    </div>
-                    <span class="lb-ep">2,450 EP</span>
-                    <span class="lb-trend up"><i class="fas fa-arrow-up"></i> 2</span>
-                </div>
-                <div class="lb-row">
-                    <span class="lb-rank">5</span>
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=clean1" alt="">
-                    <div class="lb-user-info">
-                        <strong>@clean_machine</strong>
-                        <span>Level 16 • 12🔥 streak</span>
-                    </div>
-                    <div class="lb-user-stats">
-                        <span>143 cleanups</span>
-                    </div>
-                    <span class="lb-ep">2,180 EP</span>
-                    <span class="lb-trend down"><i class="fas fa-arrow-down"></i> 1</span>
-                </div>
-                <div class="lb-row">
-                    <span class="lb-rank">6</span>
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=waste2" alt="">
-                    <div class="lb-user-info">
-                        <strong>@waste_not_want_not</strong>
-                        <span>Level 15 • 8🔥 streak</span>
-                    </div>
-                    <div class="lb-user-stats">
-                        <span>128 cleanups</span>
-                    </div>
-                    <span class="lb-ep">1,950 EP</span>
-                    <span class="lb-trend up"><i class="fas fa-arrow-up"></i> 4</span>
-                </div>
-                <div class="lb-row">
-                    <span class="lb-rank">7</span>
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=recy3" alt="">
-                    <div class="lb-user-info">
-                        <strong>@recycle_raja</strong>
-                        <span>Level 14 • 5🔥 streak</span>
-                    </div>
-                    <div class="lb-user-stats">
-                        <span>115 cleanups</span>
-                    </div>
-                    <span class="lb-ep">1,780 EP</span>
-                    <span class="lb-trend same"><i class="fas fa-minus"></i></span>
-                </div>
-            </div>
-        </div>
-    </section>
+    </section>    
 
     <!-- ==================== IMPACT DASHBOARD ==================== -->
     <section class="section impact-section" id="impact">
